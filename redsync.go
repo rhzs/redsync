@@ -38,6 +38,7 @@ func (r *Redsync) NewMutex(name string, options ...Option) *Mutex {
 		timeoutFactor: 0.05,
 		quorum:        len(r.pools)/2 + 1,
 		pools:         r.pools,
+		sut:           false,
 	}
 	for _, o := range options {
 		o.Apply(m)
@@ -115,4 +116,12 @@ func WithValue(v string) Option {
 	return OptionFunc(func(m *Mutex) {
 		m.value = v
 	})
+}
+
+// NewMutexNOOP is for testing purpose only
+func NewMutexNOOP() *Mutex {
+	return &Mutex{
+		name: "foo",
+		sut:  true,
+	}
 }
