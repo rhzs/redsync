@@ -6,8 +6,8 @@ import (
 	"encoding/base64"
 	"time"
 
-	"github.com/go-redsync/redsync/v4/redis"
 	"github.com/hashicorp/go-multierror"
+	"github.com/rhzs/redsync/v4/redis"
 )
 
 // A DelayFunc is used to decide the amount of time to wait between retries.
@@ -167,7 +167,7 @@ func (m *Mutex) ExtendContext(ctx context.Context) (bool, error) {
 // also return true erroneously if quorum is achieved during the call and at
 // least one node then takes long enough to respond for the lock to expire.
 //
-// Deprecated: Use Until instead. See https://github.com/go-redsync/redsync/issues/72.
+// Deprecated: Use Until instead. See https://github.com/rhzs/redsync/issues/72.
 func (m *Mutex) Valid() (bool, error) {
 	return m.ValidContext(nil)
 }
@@ -176,7 +176,7 @@ func (m *Mutex) Valid() (bool, error) {
 // also return true erroneously if quorum is achieved during the call and at
 // least one node then takes long enough to respond for the lock to expire.
 //
-// Deprecated: Use Until instead. See https://github.com/go-redsync/redsync/issues/72.
+// Deprecated: Use Until instead. See https://github.com/rhzs/redsync/issues/72.
 func (m *Mutex) ValidContext(ctx context.Context) (bool, error) {
 	if m.sut {
 		return true, nil

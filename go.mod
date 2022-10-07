@@ -1,4 +1,4 @@
-module github.com/rhzs/redsync/v5
+module github.com/rhzs/redsync/v4
 
 go 1.14
 
